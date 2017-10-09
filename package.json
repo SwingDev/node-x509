@@ -1,12 +1,12 @@
 {
   "name": "x509",
-  "version": "0.3.2",
+  "version": "0.3.2-swing",
   "description": "Simple X509 certificate parser.",
   "author": "Colton Baker",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Southern/node-x509.git"
+    "url": "git@github.com:SwingDev/node-x509.git"
   },
   "scripts": {
     "test": "node test/test"
