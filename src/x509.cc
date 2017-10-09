@@ -202,27 +202,10 @@ Local<Value> try_parse(const std::string& dataString) {
   cert = PEM_read_bio_X509(bio, NULL, 0, NULL);
 
   if (cert == NULL) {
-    BIO_free_all(bio);
-    // Switch to file BIO
-    bio = BIO_new(BIO_s_file());
-
-    // If raw read fails, try reading the input as a filename.
-    if (!BIO_read_filename(bio, data)) {
-      ERR_clear_error();
-      Nan::ThrowError("File doesn't exist.");
-      BIO_free(bio);
-      return scope.Escape(exports);
-    }
-
-    // Try reading the bio again with the file in it.
-    cert = PEM_read_bio_X509(bio, NULL, 0, NULL);
-
-    if (cert == NULL) {
-      ERR_clear_error();
-      Nan::ThrowError("Unable to parse certificate.");
-      BIO_free(bio);
-      return scope.Escape(exports);
-    }
+    ERR_clear_error();
+    Nan::ThrowError("Unable to parse certificate.");
+    BIO_free(bio);
+    return scope.Escape(exports);
   }
 
   Nan::Set(exports,
