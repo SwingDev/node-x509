@@ -7,6 +7,8 @@ Simple X509 certificate parser.
 
 Fork of https://github.com/Southern/node-x509 - please use the original repository, it's fine. This fork is made just to adhere to our procedures - have an own copy + disable falling back to treating the passed string as a filename in parseCert method, which is the only one we're using currently.
 
+Contains node.js 10 compatibility patches written by https://github.com/stormwin for https://github.com/stormwin/node-x509. Thank you!
+
 #### x509.parseCert(`string`)
 Parse subject, issuer, valid before and after date, and alternate names from certificate.
 
