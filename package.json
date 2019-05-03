@@ -1,6 +1,6 @@
 {
   "name": "x509",
-  "version": "0.3.3-swing",
+  "version": "0.3.4-swing",
   "description": "Simple X509 certificate parser.",
   "author": "Colton Baker",
   "main": "index.js",
@@ -13,6 +13,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "nan": "2.10.0"
+    "nan": "^2.13.2"
   }
 }

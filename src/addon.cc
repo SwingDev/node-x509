@@ -5,6 +5,7 @@
 #include <x509.h>
 
 using namespace v8;
+using namespace Nan;
 
 void init(Local<Object> exports) {
   Nan::Set(exports,
@@ -13,7 +14,7 @@ void init(Local<Object> exports) {
 
   Nan::Set(exports,
     Nan::New<String>("parseCert").ToLocalChecked(),
-    Nan::New<FunctionTemplate>(parse_cert)->GetFunction());
+    Nan::GetFunction(Nan::New<FunctionTemplate>(parse_cert)).ToLocalChecked());
 }
 
 NODE_MODULE(x509, init)
